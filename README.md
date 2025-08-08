@@ -1,2 +1,2 @@
 # RudderStack
-RudderStack  SDET Assignement
+RudderStack Assignement
