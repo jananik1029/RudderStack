@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+
+# Cypress test results and screenshots
+cypress/screenshots/
+cypress/videos/
+
+# Cypress cache
+.cypress_cache/
+
+# Temporary files
+*.tmp
+*.swp
