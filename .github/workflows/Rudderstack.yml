@@ -3,7 +3,7 @@ name: Cypress Daily Tests
 on:
   schedule:
     - cron: "30 0 * * *"  # Daily at 6:00 AM IST
-  workflow_dispatch:       # Manual trigger option
+  workflow_dispatch:      # Manual trigger option
 
 jobs:
   cypress-run:
@@ -30,4 +30,4 @@ jobs:
         run: npm install
         
       - name: Run Cypress tests (Headless)
-        run: npx cypress run --browser chrome --headless
+        run: npx cypress run --env cypressbaseurl=https://app.rudderstack.com --browser chrome --headless
