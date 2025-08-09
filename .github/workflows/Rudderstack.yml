@@ -1,0 +1,17 @@
+name: Cypress Daily Tests
+
+on:
+  schedule:
+    - cron: "30 0 * * *"  # Daily at 2:00 AM IST (20:30 UTC)
+  workflow_dispatch:       # Manual trigger option
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
