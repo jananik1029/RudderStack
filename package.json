@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "Data One",
-    "open": "node_modules\\.bin\\cypress open --config baseUrl=https://app.rudderstack.com",
-    "openQA": "node_modules\\.bin\\cypress open --config baseUrl=https://qa.rudderstack.com"
+    "test": "Data One"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +12,7 @@
     "cypress": "^11.2.0"
   },
   "devDependencies": {
+    "cross-env": "^10.0.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-xpath": "^2.0.1",
     "dotenv": "^17.2.1"

@@ -1,5 +1,5 @@
 const { defineConfig } = require("cypress");
-// const fs = require("fs-extra");
+// const fs = require("fs");
 // const path = require("path");
 // const dotenv = require("dotenv");
 
