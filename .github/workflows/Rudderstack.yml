@@ -2,7 +2,7 @@ name: Cypress Daily Tests
 
 on:
   schedule:
-    - cron: "30 0 * * *"  # Daily at 2:00 AM IST (20:30 UTC)
+    - cron: "30 0 * * *"  # Daily at 6:00 AM IST
   workflow_dispatch:       # Manual trigger option
 
 jobs:
