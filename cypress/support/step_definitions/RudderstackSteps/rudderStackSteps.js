@@ -23,7 +23,6 @@ And('I copy and store the write key', () => {
     webPageCall.copyStoreWriteKey();
 });
 
-
 And('I send an HTTP source using api', () => {
     webPageCall.httpSourceApi();
 });
@@ -35,9 +34,3 @@ And('I click on {string} destination and {string} in webhook page', (textOne,tex
 And('I count the {string} and {string} events', (eventOne,eventTwo) => {
     webPageCall.deliveredFailedEvents(eventOne,eventTwo);
 });
-
-
-
-
-
-
