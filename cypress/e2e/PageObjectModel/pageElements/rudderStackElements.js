@@ -1,5 +1,4 @@
 module.exports={
-    // visitPage:"https://app.rudderstack.com"
     userNameEle:"//input[@id='text-input-email']",
     passwordEle:"//input[@id='text-input-password']",
     submitButton:"//span[text()='Log in']",
