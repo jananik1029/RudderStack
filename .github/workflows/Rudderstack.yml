@@ -1,6 +1,9 @@
 name: Cypress Daily Tests
 
 on:
+  push:                   # Runs on every commit in main branch
+    branches:
+      - main
   schedule:
     - cron: "30 0 * * *"  # Daily at 6:00 AM IST
   workflow_dispatch:      # Manual trigger option
