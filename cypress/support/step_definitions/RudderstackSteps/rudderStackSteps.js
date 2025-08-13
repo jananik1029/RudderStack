@@ -1,4 +1,4 @@
-import { Before, Given, When, Then, After, And } from "cypress-cucumber-preprocessor/steps"
+import { Given,Then, And } from "cypress-cucumber-preprocessor/steps"
 import rudderStackActions from "../../../e2e/PageObjectModel/pageActions/rudderStackActions";
 
 const webPageCall = new rudderStackActions();
@@ -7,7 +7,7 @@ Given('I navigate to {string} page with {string}', (url,cred) => {
     webPageCall.baseUrl(url,cred);
 });
 
-And('I click on {string} text', (text) => {
+Then('I click on {string} text', (text) => {
     webPageCall.laterText(text);
 });
 
