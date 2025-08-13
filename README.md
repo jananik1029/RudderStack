@@ -4,7 +4,7 @@ This project demonstrates the test plan and an indicative automation implementat
 
 ---
 ## Tech Stack
-Node.js: 16.14.0  <br />
+Node.js: 22.18.0  <br />
 Cypress: 11.2.0  <br />
 Cucumber Preprocessor: 4.3.1  <br />
 cypress-xpath: 2.0.1 <br />

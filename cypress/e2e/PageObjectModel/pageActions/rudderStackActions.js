@@ -100,13 +100,13 @@ class rudderStackActions {
         cy.wrap(val).as('DeliveredValue');
       });
 
-    cy.xpath("//span[text()='" + eventOne + "']//parent::div//h2//span")
+    cy.xpath("//span[text()='" + eventTwo + "']//parent::div//h2//span")
       .invoke('text')
-      .then((val) => {
-        cy.wrap(val).as('FailedValue');
+      .then((valOne) => {
+        cy.wrap(valOne).as('FailedValue');
       });
   }
-  
+
   // clicking on the menu options
   clickMenuOptions(options) {
     cy.xpath("//div[@data-testid='menu-" + options + "']", { timeout: 80000 }).click({ force: true });
