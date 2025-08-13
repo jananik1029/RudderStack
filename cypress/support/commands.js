@@ -1,25 +1,14 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import elements from "../e2e/PageObjectModel/pageElements/rudderStackElements";
+
+Cypress.Commands.add('loginToApp', (baseUrl, username, password) => {
+  cy.visit(baseUrl, { timeout: 180000, retryOnStatusCodeFailure: true });
+  cy.xpath(elements.userNameEle, { timeout: 80000 }).should('be.visible').type(username);
+  cy.xpath(elements.passwordEle, { timeout: 80000 }).type(password);
+  cy.xpath(elements.submitButton, { timeout: 80000 }).click({ force: true });
+});
+
+Cypress.Commands.add('logoutApp', () => {
+  cy.wait(1000);
+  cy.xpath(elements.logoutIcon).click({ force: true });
+  cy.xpath(elements.logoutButton).click({ force: true });
+});

@@ -4,32 +4,14 @@ Feature: Website Functionality
         Validating on the Rudderstack page
 
 # Scenario: High-level purpose description
-# This scenario walks through navigation, UI interaction, data extraction, API actions, and event delivery verification.
 Scenario: Validate the website page
-
-# Initial navigation step
 Given I navigate to "RudderStackUrl" page with "RudderStackCred"
-
-# Dismiss prompt by choosing to do it later
-And I click on "I'll do this later" text
-
-# Proceed to the dashboard
+Then I click on "I'll do this later" text
 And I click on the "Go to dashboard" button
-
-# Extract and store key details from the page
 And I read and store the data plane
 And I copy and store the write key
-
-# Send data via HTTP API to the source
 And I send an HTTP source using api
-
-# Find the destination and access its events page
 And I click on "WebHook Automation" destination and "Events" in webhook page
-
-# Verify event delivery status counts
 And I count the "Delivered" and "Failed" events
-
 And I click on "settings" option under menu options
-
-# Verify the logout from the application
 And I logout from the application
