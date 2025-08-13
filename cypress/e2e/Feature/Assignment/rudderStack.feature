@@ -8,7 +8,7 @@ Feature: Website Functionality
 Scenario: Validate the website page
 
 # Initial navigation step
-Given I navigate to the "RudderStack" page
+Given I navigate to "RudderStackUrl" page with "RudderStackCred"
 
 # Dismiss prompt by choosing to do it later
 And I click on "I'll do this later" text

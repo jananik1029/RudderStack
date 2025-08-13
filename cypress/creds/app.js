@@ -1,6 +1,8 @@
 module.exports={
-    RudderStack:{
+    RudderStackUrl:{
         baseUrl:"https://app.rudderstack.com",
+    },
+    RudderStackCred:{
         userName:"cataho8779@blaxion.com",
         password:"Assignment1234#"
     }

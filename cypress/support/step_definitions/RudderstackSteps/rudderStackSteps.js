@@ -3,8 +3,8 @@ import rudderStackActions from "../../../e2e/PageObjectModel/pageActions/rudderS
 
 const webPageCall = new rudderStackActions();
 
-Given('I navigate to the {string} page', (cred) => {
-    webPageCall.baseURl(cred);
+Given('I navigate to {string} page with {string}', (url,cred) => {
+    webPageCall.baseUrl(url,cred);
 });
 
 And('I click on {string} text', (text) => {
@@ -42,5 +42,3 @@ And('I click on {string} option under menu options', (options) => {
 And('I logout from the application', () => {
     webPageCall.logout();
 });
-
-

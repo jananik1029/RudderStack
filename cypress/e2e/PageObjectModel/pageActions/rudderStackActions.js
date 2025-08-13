@@ -13,7 +13,7 @@ const envCreds = {
 
 class rudderStackActions {
 
-  baseURl(cred) {
+  baseUrl(url,cred) {
     let baseurlfix = null
     let usernameFix = null
     let passwordFix = null
@@ -28,7 +28,7 @@ class rudderStackActions {
 
     const selectedCreds = envCreds[env]
 
-    baseurlfix = selectedCreds[cred].baseUrl;
+    baseurlfix = selectedCreds[url].baseUrl;
     usernameFix = selectedCreds[cred].userName;
     passwordFix = selectedCreds[cred].password;
 
