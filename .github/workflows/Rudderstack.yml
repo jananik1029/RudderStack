@@ -1,6 +1,9 @@
 name: Cypress Daily Tests
 
 on:
+  push:                   # Runs on every commit in main branch
+    branches:
+      - main
   schedule:
     - cron: "30 0 * * *"  # Daily at 6:00 AM IST
   workflow_dispatch:      # Manual trigger option
@@ -30,4 +33,12 @@ jobs:
         run: npm install
         
       - name: Run Cypress tests (Headless)
-        run: npx cypress run --env cypressbaseurl=https://app.rudderstack.com --browser chrome --headless
+        run: npx cypress run --env envName=app --browser chrome --headless
+
+      - name: Upload Cypress video artifact
+        if: always()  # Ensures this runs even if earlier steps failed
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-video
+          path: cypress/videos/**.mp4
+          retention-days: 6

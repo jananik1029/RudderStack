@@ -1,34 +1,41 @@
 /// <reference types="cypress" />
 
 import elements from "../pageElements/rudderStackElements"
-import appcred from "../../../creds/appCred";
+import app from "../../../creds/app";
+import qa from "../../../creds/qa";
+import dev from "../../../creds/dev";
+
+const envCreds = {
+  app,
+  dev,
+  qa
+};
 
 class rudderStackActions {
 
   baseURl(cred) {
+    let baseurlfix = null
     let usernameFix = null
     let passwordFix = null
 
-    cy.wait(2000)
-    // let the  base url is assigned in cypressbaseurl, which should be given in the cmd while running for a particular env
-    // eg.[npm cypress open --env cypressbaseurl=https://app.rudderstack.com]
-    cy.visit(Cypress.env('cypressbaseurl'), { timeout: 180000 }, { retryOnStatusCodeFailure: true })
-    cy.wait(2000)
+    const env = Cypress.env('envName')
+    cy.log(`Running tests for environment: ${env}`)
 
-    var appUrl = "app";
-    var qaUrl = "qa";
-
-
-    var currentUrl = window.location.href;
-
-    if ((currentUrl.includes(appUrl))) {
-      usernameFix = appcred[cred].userName;
-      passwordFix = appcred[cred].password;
+    // Validate envName
+    if (!env || !Object.keys(envCreds).includes(env)) {
+      throw new Error(`Invalid or missing environment name. Please set 'envName' to one of: ${Object.keys(envCreds).join(', ')}`);
     }
-    else if ((currentUrl.includes(qaUrl))) {
-      usernameFix = appcred[cred].userName;
-      passwordFix = appcred[cred].password;
-    }
+
+    const selectedCreds = envCreds[env]
+
+    baseurlfix = selectedCreds[cred].baseUrl;
+    usernameFix = selectedCreds[cred].userName;
+    passwordFix = selectedCreds[cred].password;
+
+    cy.wait(2000)
+    cy.visit(baseurlfix, { timeout: 180000 }, { retryOnStatusCodeFailure: true })
+    cy.wait(2000)
+
     cy.xpath(elements.userNameEle, { timeout: 80000 }).should("be.visible")
     cy.xpath(elements.userNameEle, { timeout: 80000 }).type(usernameFix)
     cy.xpath(elements.passwordEle, { timeout: 80000 }).type(passwordFix)

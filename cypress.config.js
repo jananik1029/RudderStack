@@ -1,17 +1,16 @@
 const { defineConfig } = require("cypress");
-// const fs = require("fs");
-// const path = require("path");
-// const dotenv = require("dotenv");
-
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
       return require('./cypress/plugins/index.js')(on, config)
-      // implement node event listeners here
     },
+    // This is set to include all `.feature` files (used with Cucumber).
     specPattern: '**/*.feature',
-    excludeSpecPattern: ['**/stepDefinitions/*', '*.js', '*.md'],
+    excludeSpecPattern: [
+      '**/stepDefinitions/*', // Avoid treating step definitions as specs
+      '*.js',                 // Exclude root-level JS files
+      '*.md'                  // Exclude root-level Markdown files (e.g., README)
+    ],
   },
 });
