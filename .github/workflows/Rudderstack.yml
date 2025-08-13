@@ -34,3 +34,11 @@ jobs:
         
       - name: Run Cypress tests (Headless)
         run: npx cypress run --env envName=app --browser chrome --headless
+
+      - name: Upload Cypress video artifact
+        if: always()  # Ensures this runs even if earlier steps failed
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-video
+          path: cypress/videos/**.mp4
+          retention-days: 6
