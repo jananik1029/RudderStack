@@ -8,7 +8,7 @@ Node.js: 22.18.0  <br />
 Cypress: 11.2.0  <br />
 Cucumber Preprocessor: 4.3.1  <br />
 cypress-xpath: 2.0.1 <br />
-Test Runner: GitHub Actions (Daily Scheduled Workflow)  <br />
+Test Runner: GitHub Actions  <br />
 
 ---
 ## Project Structure
@@ -90,7 +90,8 @@ npx cypress open --env envName=qa
 **Cache:** Caches node_modules if package-lock.json is unchanged<br />
 
 **Artifact:** <br />
-- Every Run records Video of the Test Execution and save those as Artifact<br />
-- Video Artifact will be retained for 6 days<br />
+- Each test run records a **video of the execution**
+- Videos are uploaded as **artifacts**
+- **Retention period:** 6 days
 
-The test suite executes in a headless mode as part of the CI process to ensure consistent automation verification.
+The test suite executes in a **headless mode** as part of the CI process to ensure consistent automation verification.
