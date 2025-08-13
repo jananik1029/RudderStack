@@ -44,12 +44,14 @@ class rudderStackActions {
 
   laterText(text) {
     cy.wait(2000)
-    cy.xpath(elements.latertextcall, { timeout: 80000 }).click({ force: true })
+    cy.xpath("//a[text()=\"" + text + "\"]", { timeout: 80000 }).click({ force: true })
   }
+
   dashboardbtn(btn) {
     cy.xpath(elements.goDashboardBtn, { timeout: 80000 }).click({ force: true }).wait(1000)
     cy.xpath(elements.closeIcon).click({ force: true })
   }
+
   readStoreDataPlane() {
     cy.wait(2000)
     cy.xpath(elements.dataPlane, { timeout: 80000 }).invoke('text').then((val) => {
@@ -57,6 +59,7 @@ class rudderStackActions {
       console.log(val)
     })
   }
+
   copyStoreWriteKey() {
     cy.xpath(elements.writeKey, { timeout: 80000 }).invoke('text').then((valueOne) => {
       var splitStg = valueOne.split(' ')
@@ -107,6 +110,7 @@ class rudderStackActions {
     cy.xpath("//span[text()='" + textOne + "']", { timeout: 80000 }).click({ force: true })
     cy.xpath("//div[text()='" + textTwo + "']", { timeout: 80000 }).click({ force: true })
   }
+
   deliveredFailedEvents(eventOne, eventTwo) {
     cy.xpath(elements.refreshButton).click({ force: true }).wait(1000)
     cy.xpath("//span[text()='" + eventOne + "']//parent::div//h2//span").invoke('text').then(value => {
@@ -117,6 +121,16 @@ class rudderStackActions {
       cy.wrap(valueOne).as('FailedValue')
       cy.log(valueOne)
     })
+  }
+
+  clickMenuOptions(options){
+    cy.xpath("//div[@data-testid='menu-"+options+"']", { timeout: 80000 }).click({ force: true })
+  }
+
+  logout(){
+  cy.wait(1000)
+  cy.xpath(elements.logoutIcon).click({ force: true })
+  cy.xpath(elements.logoutButton).click({ force: true })
   }
 }
 

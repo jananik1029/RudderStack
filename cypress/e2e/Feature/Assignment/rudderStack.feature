@@ -28,3 +28,8 @@ And I click on "WebHook Automation" destination and "Events" in webhook page
 
 # Verify event delivery status counts
 And I count the "Delivered" and "Failed" events
+
+And I click on "settings" option under menu options
+
+# Verify the logout from the application
+And I logout from the application

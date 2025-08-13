@@ -34,3 +34,13 @@ And('I click on {string} destination and {string} in webhook page', (textOne,tex
 And('I count the {string} and {string} events', (eventOne,eventTwo) => {
     webPageCall.deliveredFailedEvents(eventOne,eventTwo);
 });
+
+And('I click on {string} option under menu options', (options) => {
+    webPageCall.clickMenuOptions(options);
+});
+
+And('I logout from the application', () => {
+    webPageCall.logout();
+});
+
+
