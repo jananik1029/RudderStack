@@ -69,6 +69,7 @@ npx cypress open --env envName=ENVIRONMENT-NAME
 ```
 Replace ENVIRONMENT-NAME with any of the environments **(app, dev, qa)** <br />
 **NOTE:** If ENVIRONMENT-NAME value is anything other than **app**, **dev** or **qa**, then code will throw error saying **Invalid or missing environment name.** <br />
+<br />
 EXAMPLE:
 ```
 npx cypress open --env envName=app
