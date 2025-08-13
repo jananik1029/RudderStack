@@ -30,4 +30,4 @@ jobs:
         run: npm install
         
       - name: Run Cypress tests (Headless)
-        run: npx cypress run --env cypressbaseurl=https://app.rudderstack.com --browser chrome --headless
+        run: npx cypress run --env envName=dev --browser chrome --headless
